@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NoteApp.Pages.UserRegistration">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="firstName" Placeholder="First Name"></Entry>
+                <Entry x:Name="lastName" Placeholder="Last Name"></Entry>
+            </StackLayout>
+            <Entry x:Name="email" Placeholder="Email"></Entry>
+            <Entry x:Name="password" Placeholder="Password" IsPassword="True"></Entry>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Save Password"></Label>
+                <Switch IsToggled="False"></Switch>
+            </StackLayout>
+            <Button Text="Sign Up" Clicked="Btn_AddClicked"></Button>
+            <Label Text="Already have account? Sign In" TextColor="Blue">
+                <Label.GestureRecognizers>
+                <TapGestureRecognizer
+                Tapped="OnTapGestureRecognizerTapped"
+                 />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label HorizontalOptions="Center" Text="OR"></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Image Source="facebook.png"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand" WidthRequest="50" HeightRequest="50" />
+                <Image Source="google.png"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand" WidthRequest="50" HeightRequest="50" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

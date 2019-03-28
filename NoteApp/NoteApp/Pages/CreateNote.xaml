@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NoteApp.Pages.CreateNote">
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout >
+                <Entry  x:Name="title" Placeholder="Title" PlaceholderColor="Gray" FontSize="Large" FontAttributes="Bold" IsSpellCheckEnabled="False"/>
+            </StackLayout>
+            <StackLayout>
+                <Editor  x:Name="note"  Placeholder="Notes" AutoSize="TextChanges" PlaceholderColor="Olive" FontSize="Large" FontAttributes="Bold" IsSpellCheckEnabled="True"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
+
+

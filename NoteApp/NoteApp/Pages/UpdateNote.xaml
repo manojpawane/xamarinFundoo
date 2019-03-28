@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NoteApp.Pages.UpdateNote">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="archive"
+                     Order="Primary"
+                     Clicked="ToolbarItem_Clicked"
+                     x:Name="archived">
+            <ToolbarItem.Icon>
+                <OnPlatform x:DataType="FileImageSource"
+                            Android="archive.png"></OnPlatform>
+            </ToolbarItem.Icon>
+            
+        </ToolbarItem>
+        <ToolbarItem Text="archive"
+                     Order="Primary"
+                     Clicked="ToolbarItem_Clicked"
+                     x:Name="unarchived">
+            <ToolbarItem.Icon>
+                <OnPlatform x:DataType="FileImageSource"
+                            Android="unarchive.png"></OnPlatform>
+            </ToolbarItem.Icon>
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+ 
+    
+
+    <ContentPage.Content>
+        <StackLayout x:Name="UpdateNoteLayout">
+            <Editor x:Name="editor" Placeholder="Title" PlaceholderColor="Gray" FontSize="Large" FontAttributes="Bold" IsSpellCheckEnabled="False"></Editor>
+            <Editor x:Name="editorContent"  Placeholder="Notes" AutoSize="TextChanges" PlaceholderColor="Olive" FontSize="Large" FontAttributes="Bold" IsSpellCheckEnabled="True"></Editor>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

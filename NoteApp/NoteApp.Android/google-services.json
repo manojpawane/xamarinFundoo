@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "8325263222",
+    "firebase_url": "https://todonotes-b0960.firebaseio.com",
+    "project_id": "todonotes-b0960",
+    "storage_bucket": "todonotes-b0960.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8325263222:android:8cd6bc823c60a680",
+        "android_client_info": {
+          "package_name": "com.companyname.NoteApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "8325263222-ourptmhq8c0e0iq1775g8b0tkncbeqho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQViox84j0fxO3sSPyd7JeeyH43Yqxl6M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

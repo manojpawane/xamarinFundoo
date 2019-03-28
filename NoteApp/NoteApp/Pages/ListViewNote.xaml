@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NoteApp.Pages.ListViewNote">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Clicked="MenuItem1_Clicked" Order="Primary" Icon="grid.png" Text="Item 1" Priority="0" >
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <RelativeLayout>
+
+            <ScrollView  Orientation="Vertical" VerticalOptions="StartAndExpand" HeightRequest="480">
+                <Grid x:Name="gridLayout"></Grid>
+            </ScrollView>
+
+            <StackLayout VerticalOptions="End" BackgroundColor="White"  
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.90}"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}">
+                <!-- Bottom Content -->
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Button HorizontalOptions="Start" VerticalOptions="Start" Text="Take a note...." Padding="1, 0, 5,0" HeightRequest="50"  BackgroundColor="White" WidthRequest="200" TextColor="Black" Clicked="Button_Clicked" />
+                    <ImageButton Source="gallery" HeightRequest="10" HorizontalOptions="End" Padding="0, 0, 1, 0" WidthRequest="25"  BackgroundColor="White"/>
+                </StackLayout>
+            </StackLayout>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
