@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="NoteApp.Pages.Edit_PopUp.EditPopup">
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                  DurationOut="300"
+                                  EasingIn="SinOut"
+                                  EasingOut="SinIn"
+                                  HasBackgroundAnimation="True"
+                                  PositionIn="Bottom"
+                                  PositionOut="Bottom"
+                                  ScaleIn="1.2"
+                                  ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+
+    <StackLayout Margin="12"
+                Padding="24"
+                BackgroundColor="White"
+                HorizontalOptions="End"
+                VerticalOptions="End">
+        <Grid x:Name="controlGrid" RowSpacing="0" ColumnSpacing="0">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ImageButton Source="delete.png" Grid.Row="0" Grid.Column="0" BackgroundColor="White" />
+            <Button Text ="delete" Grid.Row="0" Grid.Column="1" Clicked="ImageButton_Clicked" Grid.ColumnSpan="8" FontSize="Small"  BackgroundColor="White" />
+
+            <ImageButton Source="copy.png" Grid.Row="1" Grid.Column="0"  BackgroundColor="White"/>
+            <Button Text ="Make a copy" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="8"  FontSize="Small" BackgroundColor="White"/>
+
+            <ImageButton Source="shareit.png" Grid.Row="2" Grid.Column="0"  BackgroundColor="White"/>
+            <Button Text ="Send" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="8" FontSize="Small" BackgroundColor="White"  />
+
+            <ImageButton Source="user.png" Grid.Row="3" Grid.Column="0"  BackgroundColor="White"/>
+            <Button Text ="Collaborator" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="8" FontSize="Small" BackgroundColor="White"/>
+
+            <ImageButton Source="labelss.png" Grid.Row="4" Grid.Column="0"  BackgroundColor="White"/>
+            <Button Text ="Labels" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="8" FontSize="Small" BackgroundColor="White"/>
+        </Grid>
+    </StackLayout>
+
+</pages:PopupPage>

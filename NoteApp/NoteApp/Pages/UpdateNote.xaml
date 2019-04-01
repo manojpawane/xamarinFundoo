@@ -32,6 +32,7 @@
         <StackLayout x:Name="UpdateNoteLayout">
             <Editor x:Name="editor" Placeholder="Title" PlaceholderColor="Gray" FontSize="Large" FontAttributes="Bold" IsSpellCheckEnabled="False"></Editor>
             <Editor x:Name="editorContent"  Placeholder="Notes" AutoSize="TextChanges" PlaceholderColor="Olive" FontSize="Large" FontAttributes="Bold" IsSpellCheckEnabled="True"></Editor>
+            <Button Text="Test" Clicked="Button_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

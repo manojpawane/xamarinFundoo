@@ -2,7 +2,9 @@
 using Firebase.Database.Query;
 using NoteApp.Interfaces;
 using NoteApp.Models;
+using NoteApp.Pages.Edit_PopUp;
 using NoteApp.Repository;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,6 +82,11 @@ namespace NoteApp.Pages
             note.noteType = NoteType.isArchive;
             notesRepository.UpdateNoteAsync(note, noteKeys, uid);
             await Navigation.PushAsync(new NoteView());
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            PopupNavigation.Instance.PushAsync(new EditPopup(noteKeys));
         }
     }
 }

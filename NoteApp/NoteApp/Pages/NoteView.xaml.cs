@@ -11,6 +11,7 @@
     using System.Linq;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
+    using static NoteApp.Common.Enum;
 
     /// <summary>
     /// Collections of method for Note View in Grid format
@@ -52,12 +53,20 @@
 
             /// Gets the notes from Database with respect to user
             var notes = await noteRepository.GetNotesAsync(uid);
-
+            IList<Note> noteForGrid = new List<Note>();
             /// if response is not null it will go to method where it will render as a Grid view
             if (notes != null)
             {
-                NoteGridView(notes);
+                foreach (var item in notes)
+                {
+                    if (item.noteType == NoteType.isNote)
+                    {
+                        noteForGrid.Add(item);
+                    }
+                }
             }
+
+            NoteGridView(noteForGrid);
         }
 
 

@@ -23,7 +23,8 @@
             {
                 Title = item.Object.Title,
                 Content = item.Object.Content,
-                Key = item.Key
+                Key = item.Key,
+                noteType = item.Object.noteType
             }).ToList();
 
             return noteData;
