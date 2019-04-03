@@ -46,7 +46,7 @@ namespace NoteApp.Pages
                 ToolbarItems.Add(archived);
               
             }
-            else
+            else if(note.noteType == NoteType.isArchive)
             {
                 ToolbarItems.Add(unarchived);
             }
@@ -65,7 +65,7 @@ namespace NoteApp.Pages
                     Title = editor.Text,
                     Content = editorContent.Text
                 };
-                notesRepository.UpdateNoteAsync(newNote, noteKeys, uid);
+                notesRepository.UpdateNoteAsync(newNote, noteKeys, uid).ConfigureAwait(false)     ;
                 
                 return base.OnBackButtonPressed();
             }
@@ -80,8 +80,8 @@ namespace NoteApp.Pages
             string uid = DependencyService.Get<IFirebaseAuthenticator>().User();
             Note note = await notesRepository.GetNoteByKeyAsync(noteKeys, uid);
             note.noteType = NoteType.isArchive;
-            notesRepository.UpdateNoteAsync(note, noteKeys, uid);
-            await Navigation.PushAsync(new NoteView());
+            await notesRepository.UpdateNoteAsync(note, noteKeys, uid);
+            await Navigation.PushModalAsync(new MainPage());
         }
 
         private void Button_Clicked(object sender, EventArgs e)

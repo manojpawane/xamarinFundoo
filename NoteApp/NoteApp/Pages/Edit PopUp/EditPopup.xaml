@@ -24,10 +24,6 @@
         <Grid x:Name="controlGrid" RowSpacing="0" ColumnSpacing="0">
 
             <Grid.RowDefinitions>
-
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
                 <RowDefinition Height="40" />
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40" />
@@ -36,26 +32,15 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <ImageButton Source="delete.png" Grid.Row="0" Grid.Column="0" BackgroundColor="White" />
             <Button Text ="delete" Grid.Row="0" Grid.Column="1" Clicked="ImageButton_Clicked" Grid.ColumnSpan="8" FontSize="Small"  BackgroundColor="White" />
 
-            <ImageButton Source="copy.png" Grid.Row="1" Grid.Column="0"  BackgroundColor="White"/>
-            <Button Text ="Make a copy" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="8"  FontSize="Small" BackgroundColor="White"/>
+            <ImageButton Source="user.png" Grid.Row="1" Grid.Column="0"  BackgroundColor="White"/>
+            <Button Text ="Collaborator" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="8" FontSize="Small" BackgroundColor="White"/>
 
-            <ImageButton Source="shareit.png" Grid.Row="2" Grid.Column="0"  BackgroundColor="White"/>
-            <Button Text ="Send" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="8" FontSize="Small" BackgroundColor="White"  />
-
-            <ImageButton Source="user.png" Grid.Row="3" Grid.Column="0"  BackgroundColor="White"/>
-            <Button Text ="Collaborator" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="8" FontSize="Small" BackgroundColor="White"/>
-
-            <ImageButton Source="labelss.png" Grid.Row="4" Grid.Column="0"  BackgroundColor="White"/>
-            <Button Text ="Labels" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="8" FontSize="Small" BackgroundColor="White"/>
+            <ImageButton Source="label.png" Grid.Row="2" Grid.Column="0"  BackgroundColor="White"/>
+            <Button Text ="Labels" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="8" FontSize="Small" BackgroundColor="White"/>
         </Grid>
     </StackLayout>
 

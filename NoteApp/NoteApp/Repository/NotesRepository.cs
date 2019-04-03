@@ -36,9 +36,9 @@
             return note;
         }
 
-        public async void UpdateNoteAsync(Note note, string key, string uid)
+        public async Task UpdateNoteAsync(Note note, string key, string uid)
         {
-            await firebaseClient.Child("User").Child(uid).Child("Note").Child(key).PutAsync<Note>(new Note() { Title = note.Title, Content = note.Content, noteType = note.noteType});
+          await firebaseClient.Child("User").Child(uid).Child("Note").Child(key).PutAsync<Note>(new Note() { Title = note.Title, Content = note.Content, noteType = note.noteType});
         }
     }
 }

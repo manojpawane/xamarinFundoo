@@ -27,9 +27,9 @@ namespace NoteApp.Pages.Edit_PopUp
             var uid = DependencyService.Get<IFirebaseAuthenticator>().User();
             note = await noteRepository.GetNoteByKeyAsync(this.noteKey, uid);
             note.noteType = NoteType.isTrash;
-            noteRepository.UpdateNoteAsync(note, this.noteKey, uid);
+            await noteRepository.UpdateNoteAsync(note, this.noteKey, uid);
+            await Navigation.PushModalAsync(new MainPage());
             await PopupNavigation.Instance.PopAsync();
-            await Navigation.PushAsync(new NoteView());
         }
     }
 }

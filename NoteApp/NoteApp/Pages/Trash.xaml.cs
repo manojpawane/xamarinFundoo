@@ -111,7 +111,6 @@ namespace NoteApp.Pages
                         IsVisible = false
                     };
 
-
                     /// label for content of the notes
                     var Content = new Label
                     {
