@@ -9,6 +9,7 @@
     using Xamarin.Forms;
     using Newtonsoft.Json;
     using System.Linq;
+    using static NoteApp.Common.Enum;
 
     /// <summary>
     /// Database layer defination
@@ -34,7 +35,13 @@
             string uid = await DependencyService.Get<IFirebaseAuthenticator>().AddUserWithEmailPassword(email, password);
 
             /// To add user details in database
-           await firebaseClient.Child("User").Child(uid).Child("UserInfo").PostAsync<User>(new User() { Uid = uid, FirstName = firstName, LastName = lastName });
+           await firebaseClient.Child("User").Child(uid).Child("UserInfo").PostAsync<User>(new User() { Uid = uid, FirstName = firstName, LastName = lastName, viewType = ViewType.gridView });
+        }
+
+        public async Task<User> GetUser(string uid)
+        {
+            var user = await firebaseClient.Child("User").Child(uid).Child("UserInfo").OnceSingleAsync<User>();
+            return user;
         }
     }
 }

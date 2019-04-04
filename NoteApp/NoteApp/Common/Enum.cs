@@ -10,5 +10,12 @@
 
             isTrash
         }
+
+        public enum ViewType
+        {
+            listView,
+
+            gridView
+        }
     }
 }

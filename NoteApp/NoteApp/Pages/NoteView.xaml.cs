@@ -19,8 +19,9 @@
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NoteView : ContentPage
     {
+        FirebaseClient firebaseClient = new FirebaseClient("https://todonotes-b0960.firebaseio.com/");
         NotesRepository noteRepository = new NotesRepository();
-
+        UserRepository userRepository = new UserRepository();
         /// <summary>
         /// Initializes a new instance of the <see cref="NoteView"/> class.
         /// </summary>
@@ -48,9 +49,10 @@
         /// </remarks>
         protected async override void OnAppearing()
         {
+            gridLayout.Children.Clear();
             /// Calls run time service from respective device (Android, iOS, UWP) to get current user 
             var uid = DependencyService.Get<IFirebaseAuthenticator>().User();
-
+            var user =await userRepository.GetUser(uid);
             /// Gets the notes from Database with respect to user
             var notes = await noteRepository.GetNotesAsync(uid);
             IList<Note> noteForGrid = new List<Note>();
@@ -65,8 +67,18 @@
                     }
                 }
             }
-
-            NoteGridView(noteForGrid);
+            ToolbarItems.Clear();
+            if(user.viewType == ViewType.gridView)
+            {
+                NoteGridView(noteForGrid);
+                ToolbarItems.Add(list);
+            }
+            else
+            {
+                NoteListView(noteForGrid);
+                ToolbarItems.Add(grid);
+            }
+            
         }
 
 
@@ -178,9 +190,98 @@
             }
         }
 
-        private void MenuItem1_Clicked(object sender, EventArgs e)
+        public void NoteListView(IList<Note> list)
         {
-            Navigation.PushModalAsync(new ListViewNote());
+            gridLayout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(280) });
+            gridLayout.Margin = 5;
+            int rowCount = list.Count;
+
+            //ListView listView = new ListView() { HasUnevenRows = true };
+
+            var productIndex = 0;
+            var title = "";
+            var content = "";
+            var indexe = -1;
+
+            /// Iterate a single row at a time to add two notes in one row
+            for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
+            {
+                /// iterating column to add per note in each column in a single row
+                for (int columnIndex = 0; columnIndex < 1; columnIndex++)
+                {
+                    Note data = null;
+                    indexe++;
+
+                    /// to maintain the size of array to avoid exception
+                    if (indexe < list.Count)
+                    {
+                        data = list[indexe];
+                    }
+
+                    /// Once every note is added in respective column and row than it will break
+                    if (productIndex >= list.Count)
+                    {
+                        break;
+                    }
+
+                    productIndex += 1;
+                    var index = rowIndex * columnIndex + columnIndex;
+
+                    title = data.Title;
+                    content = data.Content;
+
+                    var layout = new StackLayout();
+
+                    /// label for title
+                    var label = new Label
+                    {
+                        Text = title,
+                        VerticalOptions = LayoutOptions.Center,
+                        HorizontalOptions = LayoutOptions.Start,
+                    };
+
+                    /// label for content of the notes
+                    var Content = new Label
+                    {
+                        Text = content,
+                        VerticalOptions = LayoutOptions.Center,
+                        HorizontalOptions = LayoutOptions.Start,
+
+                    };
+
+                    layout.Children.Add(label);
+                    layout.Children.Add(Content);
+                    layout.Spacing = 2;
+                    layout.Margin = 2;
+                    layout.BackgroundColor = Color.White;
+
+                    /// adding StackLayout to frame to display it in card view
+                    var frame = new Frame();
+                    frame.Content = layout;
+                    gridLayout.Children.Add(frame, columnIndex, rowIndex);
+                }
+            }
+        }
+
+        private async void MenuItem1_Clicked(object sender, EventArgs e)
+        {
+           var val = (ToolbarItem)sender;
+           gridLayout.Children.Clear();
+           gridLayout.ColumnDefinitions.Clear();
+           gridLayout.RowDefinitions.Clear();
+            var uid = DependencyService.Get<IFirebaseAuthenticator>().User();
+           ViewType viewType;
+           if (val.Text == "grid")
+           {
+               viewType = ViewType.gridView;
+           }
+           else
+           {
+               viewType = ViewType.listView;
+           }
+           
+           await firebaseClient.Child("User").Child(uid).Child("UserInfo").PutAsync<User>(new User() {  viewType = viewType });
+           OnAppearing();
         }
     }
 }

@@ -65,8 +65,7 @@ namespace NoteApp.Pages
                     Title = editor.Text,
                     Content = editorContent.Text
                 };
-                notesRepository.UpdateNoteAsync(newNote, noteKeys, uid).ConfigureAwait(false)     ;
-                
+                notesRepository.UpdateNoteAsync(newNote, noteKeys, uid).ConfigureAwait(false);
                 return base.OnBackButtonPressed();
             }
             else
@@ -79,6 +78,14 @@ namespace NoteApp.Pages
         {
             string uid = DependencyService.Get<IFirebaseAuthenticator>().User();
             Note note = await notesRepository.GetNoteByKeyAsync(noteKeys, uid);
+            if(note.noteType == NoteType.isArchive)
+            {
+                note.noteType = NoteType.isNote;
+            }
+            else
+            {
+                note.noteType = NoteType.isArchive;
+            }
             note.noteType = NoteType.isArchive;
             await notesRepository.UpdateNoteAsync(note, noteKeys, uid);
             await Navigation.PushModalAsync(new MainPage());

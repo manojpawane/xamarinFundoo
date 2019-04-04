@@ -3,11 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:view="clr-namespace:NoteApp.Pages"
              x:Class="NoteApp.Pages.NoteView">
+
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="MenuItem1" Clicked="MenuItem1_Clicked" Order="Primary" Icon="list.png" Text="Item 1" Priority="0" >
+        <ToolbarItem Text="list"
+                     Order="Primary"
+                     Clicked="MenuItem1_Clicked"
+                     x:Name="list">
+            <ToolbarItem.Icon>
+                <OnPlatform x:DataType="FileImageSource"
+                            Android="list.png"></OnPlatform>
+            </ToolbarItem.Icon>
+
+        </ToolbarItem>
+        <ToolbarItem Text="grid"
+                     Order="Primary"
+                     Clicked="MenuItem1_Clicked"
+                     x:Name="grid">
+            <ToolbarItem.Icon>
+                <OnPlatform x:DataType="FileImageSource"
+                            Android="grid.png"></OnPlatform>
+            </ToolbarItem.Icon>
+
         </ToolbarItem>
     </ContentPage.ToolbarItems>
-    
+
+
     <ContentPage.Content>
         
         <RelativeLayout> 
@@ -17,6 +37,7 @@
 
             <ScrollView  Orientation="Vertical" VerticalOptions="StartAndExpand" HeightRequest="480">
                 <Grid x:Name="gridLayout">
+                    
                 </Grid>
             </ScrollView>
 

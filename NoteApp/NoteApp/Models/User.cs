@@ -1,4 +1,6 @@
-﻿namespace NoteApp.Models
+﻿using static NoteApp.Common.Enum;
+
+namespace NoteApp.Models
 {
     /// <summary>
     /// The Model class for User
@@ -44,5 +46,7 @@
         /// The password.
         /// </value>
         public string Password { get; set; }
+
+        public ViewType viewType { get; set; }
     }
 }
