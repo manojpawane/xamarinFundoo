@@ -30,5 +30,6 @@ namespace NoteApp.Models
         public string Title { get; set; }
 
         public NoteType noteType { get; set; }
+
     }
 }

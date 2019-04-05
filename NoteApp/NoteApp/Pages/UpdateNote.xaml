@@ -4,6 +4,16 @@
              x:Class="NoteApp.Pages.UpdateNote">
     
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="reminder"
+                     Order="Primary"
+                     Clicked="Reminder_Clicked"
+                     x:Name="reminder">
+            <ToolbarItem.Icon>
+                <OnPlatform x:DataType="FileImageSource"
+                            Android="reminder.png"></OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        
         <ToolbarItem Text="archive"
                      Order="Primary"
                      Clicked="ToolbarItem_Clicked"
@@ -14,7 +24,7 @@
             </ToolbarItem.Icon>
             
         </ToolbarItem>
-        <ToolbarItem Text="archive"
+        <ToolbarItem Text="unarchive"
                      Order="Primary"
                      Clicked="ToolbarItem_Clicked"
                      x:Name="unarchived">

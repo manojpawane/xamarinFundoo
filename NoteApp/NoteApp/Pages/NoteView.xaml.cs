@@ -162,7 +162,7 @@
                         Margin = 2,
                         BackgroundColor = Color.White
                     };
-
+                    
                     var tapGestureRecognizer = new TapGestureRecognizer();
 
                     layout.Children.Add(labelKey);

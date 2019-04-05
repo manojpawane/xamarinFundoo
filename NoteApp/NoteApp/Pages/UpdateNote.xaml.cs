@@ -41,6 +41,7 @@ namespace NoteApp.Pages
             editor.Text = note.Title;
             editorContent.Text = note.Content;
             ToolbarItems.Clear();
+            ToolbarItems.Add(reminder);
             if(note.noteType == NoteType.isNote)
             {
                 ToolbarItems.Add(archived);
@@ -86,7 +87,6 @@ namespace NoteApp.Pages
             {
                 note.noteType = NoteType.isArchive;
             }
-            note.noteType = NoteType.isArchive;
             await notesRepository.UpdateNoteAsync(note, noteKeys, uid);
             await Navigation.PushModalAsync(new MainPage());
         }
@@ -94,6 +94,12 @@ namespace NoteApp.Pages
         private void Button_Clicked(object sender, EventArgs e)
         {
             PopupNavigation.Instance.PushAsync(new EditPopup(noteKeys));
+        }
+
+        private async void Reminder_Clicked(object sender, EventArgs e)
+        {
+            await PopupNavigation.PushAsync(new Reminders());
+
         }
     }
 }
