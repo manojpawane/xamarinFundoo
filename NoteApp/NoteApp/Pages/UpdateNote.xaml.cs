@@ -98,7 +98,7 @@ namespace NoteApp.Pages
 
         private async void Reminder_Clicked(object sender, EventArgs e)
         {
-            await PopupNavigation.PushAsync(new Reminders());
+            await PopupNavigation.Instance.PushAsync(new Reminders());
 
         }
     }

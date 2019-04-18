@@ -41,6 +41,20 @@
 
             <ImageButton Source="label.png" Grid.Row="2" Grid.Column="0"  BackgroundColor="White"/>
             <Button Text ="Labels" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="8" FontSize="Small" BackgroundColor="White"/>
+
+            <ScrollView Orientation="Horizontal" VerticalOptions="End">
+                <StackLayout Orientation="Horizontal" Spacing="10" >
+                    <Button BackgroundColor="Aqua" CornerRadius="20"  WidthRequest="40" HeightRequest="40" />
+                    <Button BackgroundColor="DarkGoldenrod" CornerRadius="20" WidthRequest="40" HeightRequest="40" />
+                    <Button BackgroundColor="Green" CornerRadius="20" WidthRequest="40" HeightRequest="40" />
+                    <Button BackgroundColor="Gold" CornerRadius="20" WidthRequest="40" HeightRequest="40" />
+                    <Button BackgroundColor="GreenYellow" CornerRadius="20" WidthRequest="40" HeightRequest="40"/>
+                    <Button BackgroundColor="Gray" CornerRadius="20" WidthRequest="40" HeightRequest="40"/>
+                    <Button BackgroundColor="Lavender" CornerRadius="20" WidthRequest="40" HeightRequest="40" />
+                    <Button BackgroundColor="MintCream" CornerRadius="20" WidthRequest="40" HeightRequest="40"/>
+
+                </StackLayout>
+            </ScrollView>
         </Grid>
     </StackLayout>
 

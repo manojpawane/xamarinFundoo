@@ -17,12 +17,23 @@ namespace NoteApp.Pages
 		public Reminders ()
 		{
 			InitializeComponent ();
+            var dateAndTime = DateTime.Now;
+            reminderDate.MinimumDate = dateAndTime.Date;
 		}
 
-        [Obsolete]
+        
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await PopupNavigation.PopAsync(true);
+            await PopupNavigation.Instance.PopAsync(true);
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            var date = reminderDate.Date;
+            var time = reminderTime.Time;
+            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder reminderInstance = stringBuilder.Append(date);
+            reminderInstance = stringBuilder.Append(time);
         }
     }
 }

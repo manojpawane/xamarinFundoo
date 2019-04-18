@@ -37,22 +37,31 @@
         /// <remarks>
         /// To be added.
         /// </remarks>
-        protected override bool OnBackButtonPressed()
-        {   
-            /// It checks whether running device is android if it is Android it post the note in database
-            if (Device.RuntimePlatform.Equals(Device.Android))
-            {
+        //protected override bool OnBackButtonPressed()
+        //{   
+        //    /// It checks whether running device is android if it is Android it post the note in database
+        //    if (Device.RuntimePlatform.Equals(Device.Android))
+        //    {
+        //        /// Get(s) the existing user which is current active
+        //        var uid = DependencyService.Get<IFirebaseAuthenticator>().User();
+
+        //        /// sends request to store data in database
+        //        var response = firebaseClient.Child("User").Child(uid).Child("Note").PostAsync<Note>(new Note() { Title = title.Text, Content = note.Text, noteType = NoteType.isNote});
+        //        return base.OnBackButtonPressed();
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
+        protected override void OnDisappearing()
+        {
                 /// Get(s) the existing user which is current active
                 var uid = DependencyService.Get<IFirebaseAuthenticator>().User();
 
                 /// sends request to store data in database
-                var response = firebaseClient.Child("User").Child(uid).Child("Note").PostAsync<Note>(new Note() { Title = title.Text, Content = note.Text, noteType = NoteType.isNote});
-                return base.OnBackButtonPressed();
-            }
-            else
-            {
-                return false;
-            }
+                var response = firebaseClient.Child("User").Child(uid).Child("Note").PostAsync<Note>(new Note() { Title = title.Text, Content = note.Text, noteType = NoteType.isNote });
         }
     }
 }
